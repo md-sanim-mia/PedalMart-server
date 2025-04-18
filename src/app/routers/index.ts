@@ -14,7 +14,7 @@ const moduleRouters = [
     route: bikeRouters,
   },
   {
-    path: "/service-record",
+    path: "/services",
     route: serviceRecordRouters,
   },
 ];
