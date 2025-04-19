@@ -46,8 +46,7 @@ const deleteSingleBike = asyncCatch(async (req, res) => {
   sendResponse(res, {
     statusCode: 200,
     success: true,
-    message: "success fully delete single customer",
-    data: result,
+    message: "success fully delete single bike",
   });
 });
 export const bikeContllors = {

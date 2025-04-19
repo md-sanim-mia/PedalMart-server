@@ -6,6 +6,6 @@ route.post("/", bikeContllors.createBike);
 route.get("/", bikeContllors.getAllBike);
 route.get("/:bikeId", bikeContllors.getSingleBike);
 route.put("/:bikeId", bikeContllors.updateSingleBike);
-route.delete("/:bikeId", bikeContllors.updateSingleBike);
+route.delete("/:bikeId", bikeContllors.deleteSingleBike);
 
 export const bikeRouters = route;

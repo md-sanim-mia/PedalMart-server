@@ -11,7 +11,7 @@ const getAllServiceRecordForDb = async () => {
   return result;
 };
 const getSingleServiceRecordForDb = async (serviceId: string) => {
-  const result = await prisma.serviceRecord.findUniqueOrThrow({
+  const result = await prisma.serviceRecord.findUnique({
     where: { serviceId: serviceId },
   });
   return result;
@@ -22,7 +22,21 @@ const updatedSingleServiceRecordForDb = async (
 ) => {
   const result = await prisma.serviceRecord.update({
     where: { serviceId: serviceId },
-    data: paylood,
+    data: { completionDate: paylood.completionDate },
+  });
+  return result;
+};
+const overdueServiceForDb = async () => {
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+  const result = await prisma.serviceRecord.findMany({
+    where: {
+      OR: [
+        { status: "pending" },
+        { status: "in_progress" },
+        { serviceDate: { lt: sevenDaysAgo } },
+      ],
+    },
   });
   return result;
 };
@@ -31,4 +45,5 @@ export const serviceRecord = {
   getAllServiceRecordForDb,
   getSingleServiceRecordForDb,
   updatedSingleServiceRecordForDb,
+  overdueServiceForDb,
 };

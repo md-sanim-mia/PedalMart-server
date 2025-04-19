@@ -43,6 +43,17 @@ const updateSingleServiceRecord = asyncCatch(async (req, res) => {
     data: result,
   });
 });
+
+const overServiceRecord = asyncCatch(async (req, res) => {
+  console.log("hello world");
+  const result = await serviceRecord.overdueServiceForDb();
+  sendResponse(res, {
+    statusCode: 200,
+    success: true,
+    message: "success fully get pending or overdue",
+    data: result,
+  });
+});
 // const deleteSingleServiceRecord = asyncCatch(async (req, res) => {
 //   const { customerId } = req.params;
 //   const result = await serviceRecord.(customerId);
@@ -58,4 +69,5 @@ export const serviceRecordContllors = {
   getAllServiceRecord,
   getSinglesServiceRecord,
   updateSingleServiceRecord,
+  overServiceRecord,
 };
