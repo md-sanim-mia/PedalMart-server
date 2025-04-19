@@ -18,7 +18,7 @@ const getAllCustomerForDb = async () => {
   return result;
 };
 const getSingleCustomerForDb = async (customerId: string) => {
-  const result = await prisma.customer.findUniqueOrThrow({
+  const result = await prisma.customer.findUnique({
     where: { customerId: customerId },
   });
   return result;

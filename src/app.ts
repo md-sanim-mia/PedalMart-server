@@ -9,11 +9,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.get("/", (req: Request, res: Response) => {
   res.send({
-    message: "Template server is run ",
+    message: "padal mart server is run  ",
   });
 });
 
-app.use("/api/v1", router);
+app.use("/api", router);
 app.use(gobalErrorHandiler);
 app.use(notfound);
 export default app;

@@ -174,7 +174,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -188,7 +188,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:123456@localhost:5432/bike-store?schema=public"
+        "value": "postgresql://pedalmart_user:X5HLPR3d78Z7QahyeY72roVagu3eAbPg@dpg-d01gtfje5dus73b6k0e0-a.oregon-postgres.render.com/pedalmart"
       }
     }
   },
